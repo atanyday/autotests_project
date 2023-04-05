@@ -6,9 +6,9 @@ from selenium.webdriver import Keys, ActionChains
 from pages.login_page import Login_page
 from pages.main_page import Main_page
 from pages.catalog_page import Catalog_page
+from pages.cart_page import Cart_page
 
-
-def test_buy_product_1():
+def test_buy_product_1(set_up):
     driver = webdriver.Chrome(executable_path='/chromedriver')
     url = "https://www.dinozavrik.ru/"
     driver.get(url)
@@ -17,14 +17,26 @@ def test_buy_product_1():
     print("Browser opened")
 
     # Autorization
-    login = Login_page(driver)
-    login.autorization()
+    # login = Login_page(driver)
+    # login.autorization()
 
     # Change city to Moscow on the main page
     mp = Main_page(driver)
-    mp.change_city_to_moscow()
+    # mp.change_city_to_moscow()
 
-    # Choose product for dogs
-    mp.click_block_dog_products()
+    # Choose product for dogs and add to cart
     cp = Catalog_page(driver)
+    mp.click_block_dog_products()
     cp.buy_dog_product()
+    # Go back to main page
+    driver.get(url)
+    # Choose product for cats and add to cart
+    mp.click_block_cat_products()
+    cp.buy_cat_product()
+
+    # Enter cart
+    cart_p = Cart_page(driver)
+    cart_p.enter_cart()
+    time.sleep(2)
+
+time.sleep(2)
