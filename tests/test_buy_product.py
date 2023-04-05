@@ -12,3 +12,6 @@ def test_buy_product_1():
     # Autorization
     login = Login_page(driver)
     login.autorization()
+    # return to main page and change city to Moscow
+    mp = Main_page(driver)
+    mp.change_city_to_moscow()
