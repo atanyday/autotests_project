@@ -100,17 +100,17 @@ class Catalog_page(Base):
 
     # Methods
     def buy_dog_product(self):
-        # self.click_filter_feed()
-        # self.click_filter_price()
-        # self.click_filter_price_max(5000)
+        self.click_filter_feed()
+        self.click_filter_price()
+        self.click_filter_price_max(5000)
         self.click_filter_brand()
         self.click_filter_brand_hills()
         self.click_filter_btn()
         self.click_sort_btn_popular()
-        # self.click_product_1()
-        # self.driver.execute_script("window.scrollTo(0, 500)")
-        # self.click_product_characteristics()
-        # self.driver.back()
+        self.click_product_1()
+        self.driver.execute_script("window.scrollTo(0, 500)")
+        self.click_product_characteristics()
+        self.driver.back()
         self.click_product_1_add()
     def buy_cat_product(self):
         self.click_filter_brand()

@@ -47,4 +47,4 @@ class Login_page(Base):
         self.input_mail()
         self.input_password()
         self.click_login_button()
-        print("Autorization success")
+        print("AUTORIZATION SUCCESS")
