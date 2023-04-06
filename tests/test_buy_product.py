@@ -1,7 +1,6 @@
 import pytest
 import time
 from selenium import webdriver
-from selenium.webdriver import Keys, ActionChains
 
 from pages.login_page import Login_page
 from pages.main_page import Main_page
@@ -39,5 +38,4 @@ def test_buy_product_1(set_up):
     # Go to cart
     cart_p = Cart_page(driver)
     cart_p.enter_cart()
-    # # очистить корзину
-    # cart_p.empty_cart()
+    cart_p.empty_cart()

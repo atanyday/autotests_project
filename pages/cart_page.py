@@ -15,6 +15,7 @@ class Cart_page(Base):
     price_product_1 = "//*[@id='basket_items']/li[1]/div[5]/span"
     price_product_2 = "//*[@id='basket_items']/li[2]/div[5]/span"
     cart_total_price = "//span[@class='selected-products__final-price']"
+    delete_product = "//*[@id='basket_items']/li[1]/a"
     cart_form = "//*[@class='customer-data__data js-customer-block']"
     cart_first_name_field = "//input[@name='ORDER_PROP_1']"
     cart_last_name_field = "//input[@name='USER_LAST_NAME']"
@@ -29,6 +30,11 @@ class Cart_page(Base):
     # Getters
     def get_cart_icon(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.cart_icon)))
+    def get_delete_product(self):
+        # have to use time.sleep() because of delay which lets to delete only 1 product instead of 2
+        time.sleep(3)
+        return self.driver.find_element(By.XPATH, self.delete_product)
+        # return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.delete_product)))
     def get_price_product_1(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.price_product_1)))
     def get_price_product_2(self):
@@ -105,6 +111,12 @@ class Cart_page(Base):
     def click_confirm_method_sms(self):
         self.get_confirm_method_sms().click()
         print("Cart form: choose confirmation method SMS")
+    def delete_products_in_cart(self):
+        action = ActionChains(self.driver)
+        action.move_to_element(self.get_delete_product()).perform()
+        self.get_delete_product().click()
+        self.get_delete_product().click()
+        print("Cart is empty")
 
     # Methods
     def enter_cart(self):
@@ -118,6 +130,7 @@ class Cart_page(Base):
         self.count_total_price()
         self.number_cart_total_price()
         self.compare_prices_in_cart()
+        self.save_screen()
         self.go_to_cart_form()
         self.input_cart_first_name_field()
         self.input_cart_last_name_field()
@@ -125,4 +138,5 @@ class Cart_page(Base):
         self.input_cart_phone_field()
         self.click_confirm_method_sms()
         print("PRODUCT BUY SUCCESS")
-
+    def empty_cart(self):
+        self.delete_products_in_cart()
