@@ -17,12 +17,12 @@ def test_buy_product_1(set_up):
     print("Browser opened")
 
     # Autorization
-    login = Login_page(driver)
-    login.autorization()
+    # login = Login_page(driver)
+    # login.autorization()
 
-    # Change city to Moscow on the main page
+    # # Change city to Moscow on the main page
     mp = Main_page(driver)
-    mp.change_city_to_moscow()
+    # mp.change_city_to_moscow()
 
     # Choose product for dogs and add to cart
     cp = Catalog_page(driver)
@@ -39,5 +39,6 @@ def test_buy_product_1(set_up):
     # Enter cart
     cart_p = Cart_page(driver)
     cart_p.enter_cart()
+    time.sleep(2)
 
-
+time.sleep(2)

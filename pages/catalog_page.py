@@ -90,7 +90,7 @@ class Catalog_page(Base):
         print("Choose product_1")
     def click_product_characteristics(self):
         self.get_product_characteristics().click()
-        print("Click on cart icon")
+        print("Go to characteristics info of the product")
     def click_product_1_add(self):
         self.get_product_1_add().click()
         print("Add product_1 to cart")

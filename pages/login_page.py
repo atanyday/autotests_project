@@ -32,7 +32,7 @@ class Login_page(Base):
     def input_mail(self):
         mail = "qatest_mailbox@mail.ru"
         self.get_mail_field().send_keys(mail)
-        print("Input user name")
+        print("Input mail")
     def input_password(self):
         password = "qRX2oxm7W4B2obD"
         self.get_password_field().send_keys(password)
