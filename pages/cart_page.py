@@ -1,4 +1,6 @@
 import time
+
+from selenium.common import NoSuchElementException, TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -12,6 +14,7 @@ class Cart_page(Base):
 
     # Locators
     cart_icon = "//a[@class='header__cart ']"
+    continue_shopping_btn = "//*[@class='final-payment__pay']"
     price_product_1 = "//*[@id='basket_items']/li[1]/div[5]/span"
     price_product_2 = "//*[@id='basket_items']/li[2]/div[5]/span"
     cart_total_price = "//span[@class='selected-products__final-price']"
@@ -30,6 +33,8 @@ class Cart_page(Base):
     # Getters
     def get_cart_icon(self):
         return WebDriverWait(self.driver, 30).until(EC.element_to_be_clickable((By.XPATH, self.cart_icon)))
+    def get_continue_shopping_btn(self):
+        return WebDriverWait(self.driver, 5).until(EC.element_to_be_clickable((By.XPATH, self.continue_shopping_btn)))
     def get_delete_product(self):
         # have to use time.sleep() because of delay which lets to delete only 1 product instead of 2
         time.sleep(3)
@@ -114,9 +119,14 @@ class Cart_page(Base):
     def delete_products_in_cart(self):
         action = ActionChains(self.driver)
         action.move_to_element(self.get_delete_product()).perform()
-        self.get_delete_product().click()
-        self.get_delete_product().click()
-        print("Cart is empty")
+        while True:
+            try:
+                self.get_continue_shopping_btn().click()
+                print("Cart is empty")
+                break
+            except TimeoutException:
+                self.get_delete_product().click()
+                print("Click")
 
     # Methods
     def enter_cart(self):
