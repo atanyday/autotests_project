@@ -5,10 +5,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import Keys, ActionChains
 
 from base.base_class import Base
+from utilities.logger import Logger
 
 class Catalog_page(Base):
-    def __int__(self, driver):
-        super.__init__(driver)
+    def __init__(self, driver):
+        super().__init__(driver)
+        self.driver = driver
 
     # Locators
     filter_feed = "//div[@class='sidebar-categories-short-list']/div[1]/a"
@@ -99,6 +101,7 @@ class Catalog_page(Base):
 
     # Methods
     def buy_dog_product(self):
+        Logger.add_start_step(method="buy_dog_product")
         self.click_filter_feed()
         self.click_filter_price()
         self.click_filter_price_max(5000)
@@ -111,8 +114,11 @@ class Catalog_page(Base):
         self.click_product_characteristics()
         self.driver.back()
         self.click_product_1_add()
+        Logger.add_end_step(url=self.driver.current_url, method="buy_dog_product")
     def buy_cat_product(self):
+        Logger.add_start_step(method="buy_cat_product")
         self.click_filter_brand()
         self.click_filter_brand_sheba()
         self.click_filter_btn()
         self.click_product_2_add()
+        Logger.add_end_step(url=self.driver.current_url, method="buy_cat_product")

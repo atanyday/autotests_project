@@ -7,10 +7,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver import Keys, ActionChains
 
 from base.base_class import Base
+from utilities.logger import Logger
 
 class Cart_page(Base):
-    def __int__(self, driver):
-        super.__init__(driver)
+    def __init__(self, driver):
+        super().__init__(driver)
+        self.driver = driver
 
     # Locators
     cart_icon = "//a[@class='header__cart ']"
@@ -130,6 +132,7 @@ class Cart_page(Base):
 
     # Methods
     def enter_cart(self):
+        Logger.add_start_step(method="enter_cart")
         self.click_cart_icon()
         self.get_current_url()
         self.show_price_product_1()
@@ -148,5 +151,8 @@ class Cart_page(Base):
         self.input_cart_phone_field()
         self.click_confirm_method_sms()
         print("PRODUCT BUY SUCCESS")
+        Logger.add_end_step(url=self.driver.current_url, method="enter_cart")
     def empty_cart(self):
+        Logger.add_start_step(method="empty_cart")
         self.delete_products_in_cart()
+        Logger.add_end_step(url=self.driver.current_url, method="empty_cart")

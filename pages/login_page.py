@@ -4,10 +4,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from base.base_class import Base
+from utilities.logger import Logger
 
 class Login_page(Base):
-    def __int__(self, driver):
-        super.__init__(driver)
+    def __init__(self, driver):
+        super().__init__(driver)
+        self.driver = driver
 
     # Locators
     login_icon = "//a[@class='header__login']"
@@ -43,8 +45,10 @@ class Login_page(Base):
 
     # Methods
     def autorization(self):
+        Logger.add_start_step(method="autorization")
         self.click_login_icon()
         self.input_mail()
         self.input_password()
         self.click_login_button()
         print("AUTORIZATION SUCCESS")
+        Logger.add_end_step(url=self.driver.current_url, method="autorization")

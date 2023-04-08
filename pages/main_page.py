@@ -4,14 +4,16 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from base.base_class import Base
+from utilities.logger import Logger
 
 class Main_page(Base):
-    def __int__(self, driver):
-        super.__init__(driver)
+    def __init__(self, driver):
+        super().__init__(driver)
+        self.driver = driver
 
     # Locators
     logo = "//*[@class='header__logo']"
-    choose_city = "//span[@class='header__city-selection-text header__city-selection-text--green']"
+    choose_city = "//span[@class='header__city-selection-text outer']"
     choose_city_moscow = "//a[@data-id='129']"
     block_dog_products = "//*[@class='visual-block__item visual-block__item--sobaki']"
     block_cat_products = "//*[@class='visual-block__item visual-block__item--koshki']"
@@ -47,10 +49,15 @@ class Main_page(Base):
 
     # Methods
     def change_city_to_moscow(self):
+        Logger.add_start_step(method="change_city_to_moscow")
         self.click_logo()
         self.click_choose_city()
         self.click_choose_city_moscow()
         city_text = self.driver.find_element(By.XPATH, "//*[@class='header__city-selection-wrp']")
-        city_text.click()
         value_city_text = city_text.text
         print(value_city_text)
+        Logger.add_end_step(url=self.driver.current_url, method="change_city_to_moscow")
+    def choose_block_dog_products(self):
+        Logger.add_start_step(method="choose_block_dog_products")
+        self.click_block_dog_products()
+        Logger.add_end_step(url=self.driver.current_url, method="choose_block_dog_products")

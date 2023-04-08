@@ -6,6 +6,7 @@ from pages.login_page import Login_page
 from pages.main_page import Main_page
 from pages.catalog_page import Catalog_page
 from pages.cart_page import Cart_page
+from utilities.logger import Logger
 
 def test_buy_product_1(set_up):
     driver = webdriver.Chrome(executable_path='/chromedriver')
@@ -24,8 +25,8 @@ def test_buy_product_1(set_up):
     mp.change_city_to_moscow()
 
     # Choose product for dogs and add to cart
+    mp.choose_block_dog_products()
     cp = Catalog_page(driver)
-    mp.click_block_dog_products()
     cp.buy_dog_product()
 
     # Go back to main page

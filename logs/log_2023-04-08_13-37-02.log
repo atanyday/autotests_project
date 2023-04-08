@@ -1,0 +1,77 @@
+
+-----
+Test: test_buy_product.py::test_buy_product_1 (call)
+Start time: 2023-04-08 13:37:07.813274
+Start name method: autorization
+
+End time: 2023-04-08 13:37:11.511264
+End name method: autorization
+URL: https://www.dinozavrik.ru/personal/
+
+-----
+
+-----
+Test: test_buy_product.py::test_buy_product_1 (call)
+Start time: 2023-04-08 13:37:11.511495
+Start name method: change_city_to_moscow
+
+End time: 2023-04-08 13:37:13.432041
+End name method: change_city_to_moscow
+URL: https://www.dinozavrik.ru/#
+
+-----
+
+-----
+Test: test_buy_product.py::test_buy_product_1 (call)
+Start time: 2023-04-08 13:37:13.432549
+Start name method: choose_block_dog_products
+
+End time: 2023-04-08 13:37:15.647670
+End name method: choose_block_dog_products
+URL: https://www.dinozavrik.ru/catalog/sobaki/
+
+-----
+
+-----
+Test: test_buy_product.py::test_buy_product_1 (call)
+Start time: 2023-04-08 13:37:15.647870
+Start name method: buy_dog_product
+
+End time: 2023-04-08 13:37:32.903912
+End name method: buy_dog_product
+URL: https://www.dinozavrik.ru/catalog/sobaki/sukhoy_korm/?sort=SHOWS&order=desc&del_url=%2Fcatalog%2Fsobaki%2Fsukhoy_korm%2F&SECTION_CODE=sobaki&OPTIMUS_SMART_FILTER_488_MIN=&OPTIMUS_SMART_FILTER_488_MAX=5000&OPTIMUS_SMART_FILTER_435_408697150=Y&set_filter=%D0%9F%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C
+
+-----
+
+-----
+Test: test_buy_product.py::test_buy_product_1 (call)
+Start time: 2023-04-08 13:37:37.890603
+Start name method: buy_cat_product
+
+End time: 2023-04-08 13:37:43.078700
+End name method: buy_cat_product
+URL: https://www.dinozavrik.ru/catalog/koshki/?del_url=%2Fcatalog%2Fkoshki%2F&SECTION_CODE=koshki&OPTIMUS_SMART_FILTER_488_MIN=&OPTIMUS_SMART_FILTER_488_MAX=&OPTIMUS_SMART_FILTER_435_2778784718=Y&set_filter=%D0%9F%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C
+
+-----
+
+-----
+Test: test_buy_product.py::test_buy_product_1 (call)
+Start time: 2023-04-08 13:37:43.078930
+Start name method: enter_cart
+
+End time: 2023-04-08 13:37:52.682271
+End name method: enter_cart
+URL: https://www.dinozavrik.ru/basket/
+
+-----
+
+-----
+Test: test_buy_product.py::test_buy_product_1 (call)
+Start time: 2023-04-08 13:37:52.682723
+Start name method: empty_cart
+
+End time: 2023-04-08 13:38:17.440232
+End name method: empty_cart
+URL: https://www.dinozavrik.ru/
+
+-----
